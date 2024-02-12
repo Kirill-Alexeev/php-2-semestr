@@ -20,7 +20,7 @@
     <main>
         <div class="main__wrapper">
             <?php
-                $greeting = '<p class="main__text">Приветствую! </p>';
+                $greeting = '<p class="main__text">Приветствую!  </p>';
                 $homeWork = '<p class="main__text">Домашнее задание №1</p>';
                 echo $greeting;
                 echo $homeWork;
