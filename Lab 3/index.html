@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>PHP Lab 3</title>
+</head>
+
+<body>
+    <header>
+        <div class="header__wrapper">
+            <img src="polytech_logo_main.png" alt="Moscow Polytech logo" class="header__image">
+            <h1 class="header__headline">Feedback form</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="main__wrapper">
+            <form action="https://httpbin.org/post" method="post" class="main__form">
+                <label class="main__label">Имя
+                    <input type="text" name="name" class="main__input">
+                </label>
+                <label class="main__label">Email
+                    <input type="email" name="email" class="main__input">
+                </label>
+                <fieldset class="main__fieldset">
+                    <legend class="main__legend">Тип обращения</legend>
+                    <label class="main__label">Жалоба
+                        <input type="radio" value="Жалоба" name="type" class="main__input">
+                    </label>
+                    <label class="main__label">Предложение
+                        <input type="radio" value="Предложение" name="type" class="main__input">
+                    </label>
+                    <label class="main__label">Благодарность
+                        <input type="radio" value="Благодарность" name="type" class="main__input">
+                    </label>
+                </fieldset>
+                <label class="main__label">Текст обращения
+                    <textarea name="bigtext" cols="50" rows="5" class="main__textarea"></textarea>
+                </label>
+                <fieldset class="main__fieldset">
+                    <legend class="main__legend">Вариант ответа</legend>
+                    <label class="main__label">СМС
+                        <input type="checkbox" value="СМС" name="answer" class="main__input">
+                    </label>
+                    <label class="main__label">Email
+                        <input type="checkbox" value="Email" name="answer" class="main__input">
+                    </label>
+                </fieldset>
+                <button class="main__button">Отправить</button>
+            </form>
+            <a href="second.php" class="main__link">Вторая страница</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer__wrapper">
+            <p class="footer__paragraf">Алексеев Кирилл Игоревич</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

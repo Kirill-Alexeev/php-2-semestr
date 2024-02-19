@@ -1,0 +1,81 @@
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header__wrapper,
+.main__wrapper,
+.footer__wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+}
+
+.main__wrapper {
+    flex-direction: column;
+}
+
+.header__headline {
+    position: absolute;
+    left: calc(50% - 85px);
+    font-size: 3rem;
+}
+
+.main__text {
+    font-size: 2rem;
+}
+
+.main__form {
+    margin: auto;
+}
+
+.main__label {
+    font-size: 1.8rem;
+}
+
+.main__input {
+    margin: 15px;
+    font-size: 1.8rem;
+}
+
+.main__legend {
+    font-size: 1.8rem;
+}
+
+.main__textarea {
+    font-size: 1.8rem;
+    margin: 15px;
+}
+
+.main__button {
+    height: 40px;
+    width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1.8rem;
+}
+
+.main__link {
+    background-color: red;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    width: 400px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1.8rem;
+}
+
+.footer__wrapper {
+    justify-content: center;
+}
+
+.footer__paragraf {
+    font-size: 2.5rem;
+
+}

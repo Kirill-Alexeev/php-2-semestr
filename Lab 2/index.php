@@ -9,17 +9,14 @@
     <?php
         $string = '10 + X = 33';
         $array = explode(' ', $string);
-        $indexX = 0;
         $indexValue = 0;
         $order = 0;
         $answer = 0;
 
         if ($array[0] === 'X') {
-            $indexX += 0;
             $indexValue += 2; 
             $order += 0;
         } else {
-            $indexX += 2;
             $indexValue += 0;
             $order += 1;
         }
