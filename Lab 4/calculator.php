@@ -2,7 +2,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $expression = $_POST['expression'];
 
-        if (preg_match("/^[0-9\+\-\*\/\(\)sin\(\)cos\(\)π. ]+$/", $expression)) {
+        if (preg_match("/^[0-9\+\-\*\/\(\)sin\(\)cos\(\)tg\(\)ctg\(\)π. ]+$/", $expression)) {
             $result = calculateExpression($expression);
             echo $result;
         } else if ($expression == '') {
@@ -82,6 +82,16 @@
                 $num = calculateNumber($expression);
                 $numInRadians = $num * M_PI / 180;
                 $result = sin($numInRadians);
+            }  else if (substr($expression, 0, 2) == 'tg') {
+                $expression = substr($expression, 3);
+                $num = calculateNumber($expression);
+                $numInRadians = $num * M_PI / 180;
+                $result = tan($numInRadians);
+            }  else if (substr($expression, 0, 3) == 'ctg') {
+                $expression = substr($expression, 3);
+                $num = calculateNumber($expression);
+                $numInRadians = $num * M_PI / 180;
+                $result = 1 / tan($numInRadians);
             } else {
                 break;
             }
