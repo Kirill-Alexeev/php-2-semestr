@@ -2,7 +2,7 @@
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $expression = $_POST['expression'];
 
-        if (preg_match("/^[0-9\+\-\*\/\(\)sin\(\)cos\(\)tg\(\)ctg\(\)π. ]+$/", $expression)) {
+        if (preg_match("/^[0-9\+\-\*\/\(\)sin\(\)cos\(\)tg\(\)ctg\(\)π\. ]+$/", $expression)) {
             $result = calculateExpression($expression);
             echo $result;
         } else if ($expression == '') {
