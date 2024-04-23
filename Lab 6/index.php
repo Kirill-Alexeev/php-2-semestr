@@ -29,7 +29,7 @@
         <section>
             <form action="login.php" method="post">
                 <label>Логин
-                    <input type="text" name="login" placeholder="Введите свой логин" required>
+                    <input type="text" name="login" placeholder="Введите логин" required>
                 </label>
                 <label>Пароль
                     <input type="password" name="password" placeholder="Введите пароль" required>

@@ -1,7 +1,7 @@
 <?php
-    namespace Framework\Models\Users;
+namespace Models\Users;
 
-    class User {
+class User{
         public function __construct(
             private string $name,
         ){}
