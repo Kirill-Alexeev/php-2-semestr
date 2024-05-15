@@ -1,4 +1,5 @@
 <?php
+
     spl_autoload_register(function (string $className){
         require_once('../src/'.str_replace('\\', '/',$className).'.php');
     });
@@ -16,7 +17,7 @@
             $pageFound = true;
             $actionName = $controllerAndAction[1];
             $controller = new $controllerAndAction[0];
-            $controller->$actionName();
+            $controller->$actionName(...$matches);
          }
     }
 
