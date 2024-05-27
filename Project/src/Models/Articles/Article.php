@@ -2,7 +2,6 @@
 namespace Models\Articles;
 
 use Models\ActiveRecordEntity;
-use Models\Users\User;
 
 class Article extends ActiveRecordEntity{
             protected $name;
@@ -23,10 +22,10 @@ class Article extends ActiveRecordEntity{
                 $this->name = $name;
             }
             public function setText(string $text){
-                $this->name = $text;
+                $this->text = $text;
             }
             public function setAuthorId(string $authorId){
-                $this->name = $authorId;
+                $this->authorId = $authorId;
             }
 
             protected static function getTableName(){

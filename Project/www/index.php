@@ -4,8 +4,8 @@
         require_once('../src/'.str_replace('\\', '/',$className).'.php');
     });
     
-    $user = new Models\Users\User('Ivan');
-    $article = new Models\Articles\Article('new', 'text', $user);
+    $user = new Models\Users\User();
+    $article = new Models\Articles\Article();
 
     $route = $_GET['route'] ?? '';
     $routes = require('../src/routes.php');

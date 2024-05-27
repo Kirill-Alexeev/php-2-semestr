@@ -1,20 +1,11 @@
 <?php require(__DIR__.'/../header.php');?>
-<table class="table mt-4">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Text</th>
-      <th scope="col">Author</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach($articles as $article):?>
-    <tr>
-      <th scope="row"><a href="<?=dirname($_SERVER['SCRIPT_NAME']).'/article/'.$article->getId();?>"><?=$article->getName();?></a></th>
-      <td><?=$article->getText();?></td>
-      <td><?=$article->getAuthorId();?></td>
-    </tr>
-    <?php endforeach;?>
-  </tbody>
-</table>
+  <div class="card mt-3" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><?=$article->getName();?></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><?=$user->getNickname();?></h6>
+      <p class="card-text"><?=$article->getText();?></p>
+      <a href="<?=dirname($_SERVER['SCRIPT_NAME']);?>/article/edit/<?=$article->getId();?>" class="card-link">Edit Article</a>
+      <a href="<?=dirname($_SERVER['SCRIPT_NAME']);?>/article/delete/<?=$article->getId();?>" class="card-link">Delete Article</a>
+    </div>
+  </div>
 <?php require(__DIR__.'/../footer.php');?>
