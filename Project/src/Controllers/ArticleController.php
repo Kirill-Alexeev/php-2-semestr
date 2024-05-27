@@ -10,7 +10,6 @@ class ArticleController{
 
     public function __construct(){
         $this->view = new View(__DIR__.'/../../templates/');
-
     }
     
     public function index(){
@@ -19,8 +18,8 @@ class ArticleController{
     }
 
     public function show(int $id){
-        $article = new Article;
-        if ($article === []){
+        $article = Article::getById($id);
+        if ($article === [] or $article === null){
             $this->view->renderHtml('errors/error.php', [], 404);
             return;
         }
@@ -45,7 +44,7 @@ class ArticleController{
     }
 
     public function update($id){
-        $article = new Article;
+        $article = Article::getById($id);
         $article->setName($_POST['name']);
         $article->setText($_POST['text']);
         $article->setAuthorId($_POST['authorId']);

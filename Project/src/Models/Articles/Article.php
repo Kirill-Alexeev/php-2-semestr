@@ -2,6 +2,7 @@
 namespace Models\Articles;
 
 use Models\ActiveRecordEntity;
+use Services\Db;
 
 class Article extends ActiveRecordEntity{
             protected $name;
@@ -26,6 +27,21 @@ class Article extends ActiveRecordEntity{
             }
             public function setAuthorId(string $authorId){
                 $this->authorId = $authorId;
+            }
+            public static function getById(int $id): ?self
+            {
+                $db = Db::getInstance();
+                $sql = 'SELECT * FROM `'.static::getTableName().'` WHERE `id`='.$id;
+                $entyties = $db->query($sql, [], static::class);
+                return $entyties ? $entyties[0] : null;
+            }
+
+            public static function getFieldById(string $field, int $id): ?self
+            {
+                $db = Db::getInstance();
+                $sql = 'SELECT `'.$field.'` FROM `'.static::getTableName().'` WHERE `id`='.$id;
+                $entyties = $db->query($sql, [], static::class);
+                return $entyties ? $entyties[0] : null;
             }
 
             protected static function getTableName(){

@@ -20,11 +20,4 @@
             $controller->$actionName(...$matches);
          }
     }
-
-    // $pattern = '/^hello\/(.*)$/';
-    // preg_match($pattern, $route, $matches);
-    // if(!empty($matches)){
-    //     $controller = new \Controllers\MainController;
-    //     $controller->sayHello($matches[1]);
-    // }
-        if (!$pageFound) echo 'Страница не найдена';
+    if (!$pageFound) echo 'Страница не найдена';

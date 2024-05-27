@@ -47,7 +47,7 @@
             $sql = 'SELECT * FROM `'.static::getTableName().'` WHERE `id`='.$id;
             $entyties = $db->query($sql, [], static::class);
             return $entyties ? $entyties[0] : null;
-        }  
+        }
         public static function getFieldById(string $field, int $id): ?self
         {
             $db = Db::getInstance();
