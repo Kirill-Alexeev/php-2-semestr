@@ -4,6 +4,7 @@ namespace Controllers;
 use View\View;
 use Models\Articles\Article;
 use Models\Users\User;
+use Models\Comments\Comment;
 
 class ArticleController{
     public $view;
@@ -24,7 +25,8 @@ class ArticleController{
             return;
         }
         $user = User::getFieldById('nickname', $article->getAuthorId());
-        $this->view->renderHtml('articles/show.php', ['article'=>$article, 'user'=>$user]);
+        $comments = Comment::findByArticleId($id);
+        $this->view->renderHtml('/articles/show.php', ['article'=>$article, 'user'=>$user, 'comments' => $comments]);
     }
     public function create(){
         return $this->view->renderHtml('articles/create.php');

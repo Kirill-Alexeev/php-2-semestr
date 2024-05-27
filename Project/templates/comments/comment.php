@@ -6,7 +6,7 @@
     <?= $article->getText() ?>
 </p>
 <?php
-$pattern = '~comments/(\d+)~';
+$pattern = '~^comments/(\d+)$~';
 preg_match($pattern, $_GET['route'], $matches);
 ?>
 <h4>Комментарии:</h4>

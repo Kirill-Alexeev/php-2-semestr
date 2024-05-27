@@ -56,9 +56,7 @@ class Comment extends ActiveRecordEntity
         $db = Db::getInstance();
         $sql = 'SELECT * FROM `' . static::getTableName() . '` WHERE `articles_id` = :articles_id';
         return $db->query($sql, [':articles_id' => $articleId], static::class) ?: [];
-    }
-
-    
+    }    
 
     protected static function getTableName(): string {
         return 'comments';

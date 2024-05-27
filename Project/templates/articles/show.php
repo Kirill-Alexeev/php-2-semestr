@@ -11,8 +11,12 @@
             Article</a>
     </div>
 </div>
+<?php
+$pattern = '~^article/(\d+)$~';
+preg_match($pattern, $_GET['route'], $matches);
+?>
 <h4 class="card-title">Комментарии:</h4>
-<?php if (!empty($comments)): ?>
+<?php if (!empty($comments)):?>
     <?php foreach ($comments as $comment): ?>
         <?php if ($comment->getArticleId() == $matches[1]): ?>
             <div class="card" style="padding: 20px; margin-bottom: 10px;background-color: #E3F4F4">
