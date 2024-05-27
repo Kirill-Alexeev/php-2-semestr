@@ -15,20 +15,20 @@ class CommentsController
         $this->view = new View(__DIR__ . '/../../templates');
     }
 
-    public function view(int $articleId) {
-        $article = Article::getById($articleId);
-        if ($article === null) {
+    public function view(int $commentId) {
+        $article = Article::getById($commentId);
+        $comments = Comment::findAll();
+        if ($comments === null) {
             $this->view->renderHtml('/errors/error.php', [], 404);
             return;
         }
-
-        $comments = Comment::findByArticleId($articleId);
+        
         $this->view->renderHtml('/comments/comment.php', ['article' => $article, 'comments' => $comments]);
     }
 
     public function edit(int $commentId): void {
         $comment = Comment::getById($commentId);
-        if ($comment === []) {
+        if ($comment === null) {
             $this->view->renderHtml('/errors/error.php', [], 404);
             return;
         }
@@ -37,16 +37,15 @@ class CommentsController
         $comment->setText($_POST['text']);
         $comment->save();
 
-        header('Location: /article/show/' . $article->getId());
+        header('Location: http://localhost/php%202%20semestr/Project/www/comments/'.$article->getId());
     }
-
     public function add(): void {
-        $authorId = (int)$_POST['author_id'];
-        $articleId = (int)$_POST['article_id'];
-        $text = $_POST['text'];
+        $author = User::getById((int)$_POST['author_id']);;
 
-        $author = User::getById($authorId);
-        $article = Article::getById($articleId);
+        $pattern = '~^comments/add/(\d+)$~';
+        preg_match($pattern, $_GET['route'], $matches);
+
+        $article = Article::getById($matches[1]);
 
         if ($author === null || $article === null) {
             $this->view->renderHtml('/errors/error.php', [], 404);
@@ -56,10 +55,10 @@ class CommentsController
         $comment = new Comment();
         $comment->setAuthor($author);
         $comment->setArticle($article);
-        $comment->setText($text);
+        $comment->setText($_POST['text']);
         $comment->save();
 
-        header('Location: /article/show/' . $articleId);
+        header('Location: http://localhost/php%202%20semestr/Project/www/article/'.$article->getId());
     }
     public function delete(int $commentId): void {
         $comment = Comment::getById($commentId);
@@ -67,10 +66,9 @@ class CommentsController
             $this->view->renderHtml('/errors/error.php', [], 404);
             return;
         }
-
-        $articleId = $comment->getArticleId();
+        $article = Article::getById($comment->getArticleId());
         $comment->delete();
 
-        header('Location: /article/show/' . $articleId);
+        header('Location: http://localhost/php%202%20semestr/Project/www/comments/' . $article->getId());
     }
 }
